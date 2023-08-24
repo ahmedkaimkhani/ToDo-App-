@@ -37,7 +37,10 @@ class _HomeScreenState extends State<HomeScreen> {
                               fontSize: 30, fontWeight: FontWeight.w500),
                         ),
                       ),
-                      for (ToDo todoo in todosList) TodoItem(todo: todoo)
+                      for (ToDo todoo in todosList)
+                        TodoItem(
+                          todo: todoo,
+                        )
                     ],
                   ),
                 )
@@ -120,6 +123,11 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
     );
+  }
+
+  // Check Box Changes Funxtion
+  handleToDoChange(ToDo todo) {
+    todo.isDone = !todo.isDone;
   }
 
   // AppBar Funtion
