@@ -7,7 +7,10 @@ class TodoItem extends StatefulWidget {
   final onTodoChanged;
   final onDeleteItem;
   const TodoItem(
-      {Key? key, required this.todo, this.onTodoChanged, this.onDeleteItem})
+      {Key? key,
+      required this.todo,
+      required this.onTodoChanged,
+      required this.onDeleteItem})
       : super(key: key);
 
   @override
@@ -49,10 +52,11 @@ class _TodoItemState extends State<TodoItem> {
           width: 35,
           decoration: BoxDecoration(
               color: tdRed, borderRadius: BorderRadius.circular(5)),
-          child: const Icon(
-            Icons.delete,
+          child: IconButton(
+            onPressed: () {},
+            icon: Icon(Icons.delete),
             color: Colors.white,
-            size: 18,
+            iconSize: 18,
           ),
         ),
       ),

@@ -129,7 +129,16 @@ class _HomeScreenState extends State<HomeScreen> {
 
   // Check Box Changes Funxtion
   handleToDoChange(ToDo todo) {
-    todo.isDone = !todo.isDone;
+    setState(() {
+      todo.isDone = !todo.isDone;
+    });
+  }
+
+  // Delete ToDo Item Function
+  deleteToDoItem(String id) {
+    setState(() {
+      todosList.removeWhere((item) => item.id == id);
+    });
   }
 
   // AppBar Funtion
