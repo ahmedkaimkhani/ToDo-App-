@@ -16,7 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: buildAppBar(),
       body: SafeArea(
           child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
         child: Column(
           children: [searchBox()],
         ),
