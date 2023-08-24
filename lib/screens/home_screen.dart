@@ -18,7 +18,23 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
         child: Column(
-          children: [searchBox()],
+          children: [
+            searchBox(),
+            Expanded(
+              child: ListView(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.only(top: 50, bottom: 20),
+                    child: Text(
+                      'All ToDos',
+                      style:
+                          TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
+                    ),
+                  )
+                ],
+              ),
+            )
+          ],
         ),
       )),
     );
