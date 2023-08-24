@@ -24,10 +24,19 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
               ),
-              child: TextField(
+              child: const TextField(
                 decoration: InputDecoration(
                     contentPadding: EdgeInsets.all(0),
-                    prefix: Icon(Icons.search)),
+                    prefixIcon: Icon(
+                      Icons.search,
+                      size: 20,
+                      color: tdBlack,
+                    ),
+                    prefixIconConstraints:
+                        BoxConstraints(maxHeight: 20, minWidth: 25),
+                    border: InputBorder.none,
+                    hintText: 'Search',
+                    hintStyle: TextStyle(color: tdGrey)),
               ),
             )
           ],
