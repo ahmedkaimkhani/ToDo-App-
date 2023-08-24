@@ -19,11 +19,16 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           children: [
             Container(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
               ),
-              child: TextField(),
+              child: TextField(
+                decoration: InputDecoration(
+                    contentPadding: EdgeInsets.all(0),
+                    prefix: Icon(Icons.search)),
+              ),
             )
           ],
         ),
