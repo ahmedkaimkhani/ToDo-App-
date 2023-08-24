@@ -12,25 +12,48 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: tdBGColor,
-        title: Row(
+      backgroundColor: tdBGColor,
+      appBar: buildAppBar(),
+      body: SafeArea(
+          child: Container(
+        child: Column(
           children: [
-            const Icon(
-              Icons.menu,
-              color: tdBlack,
-            ),
             Container(
-              height: 40,
-              width: 40,
-              child: const CircleAvatar(
-                radius: 20,
-                backgroundImage: AssetImage('assets\images\ahmed.jpg'),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
               ),
+              child: TextField(),
             )
           ],
         ),
+      )),
+    );
+  }
+
+  // AppBar Funtion
+  AppBar buildAppBar() {
+    return AppBar(
+      backgroundColor: tdBGColor,
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          const Icon(
+            Icons.menu,
+            color: tdBlack,
+            size: 30,
+          ),
+          Container(
+            height: 40,
+            width: 40,
+            child: const CircleAvatar(
+              radius: 20,
+              backgroundImage: AssetImage('assets/images/ahmed.jpg'),
+            ),
+          )
+        ],
       ),
+      elevation: 0,
     );
   }
 }
