@@ -16,32 +16,37 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: buildAppBar(),
       body: SafeArea(
           child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 15),
         child: Column(
-          children: [
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: const TextField(
-                decoration: InputDecoration(
-                    contentPadding: EdgeInsets.all(0),
-                    prefixIcon: Icon(
-                      Icons.search,
-                      size: 20,
-                      color: tdBlack,
-                    ),
-                    prefixIconConstraints:
-                        BoxConstraints(maxHeight: 20, minWidth: 25),
-                    border: InputBorder.none,
-                    hintText: 'Search',
-                    hintStyle: TextStyle(color: tdGrey)),
-              ),
-            )
-          ],
+          children: [searchBox()],
         ),
       )),
+    );
+  }
+
+  // Search Bar
+  Container searchBox() {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 15),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: const TextField(
+        decoration: InputDecoration(
+          // contentPadding: EdgeInsets.all(0),
+          prefixIcon: Icon(
+            Icons.search,
+            size: 20,
+            color: tdBlack,
+          ),
+          // prefixIconConstraints:
+          //     BoxConstraints(maxHeight: 20, minWidth: 25),
+          border: InputBorder.none,
+          hintText: 'Search',
+          hintStyle: TextStyle(color: tdGrey),
+        ),
+      ),
     );
   }
 
