@@ -12,6 +12,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final todosList = ToDo.todoList();
+  TextEditingController editingController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               fontSize: 30, fontWeight: FontWeight.w500),
                         ),
                       ),
-                      for (ToDo todoo in todosList)
+                      for (ToDo todoo in todosList.reversed)
                         TodoItem(
                           todo: todoo,
                           onTodoChanged: handleToDoChange,
@@ -69,7 +70,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               spreadRadius: 0.0)
                         ],
                         borderRadius: BorderRadius.circular(10)),
-                    child: const TextField(
+                    child: TextField(
+                      controller: editingController,
                       decoration: InputDecoration(
                           hintText: 'Add new todo item',
                           border: InputBorder.none),
@@ -83,7 +85,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         backgroundColor: tdBlue,
                         minimumSize: const Size(55, 55),
                         elevation: 10),
-                    onPressed: () {},
+                    onPressed: () {
+                      addItem(editingController.text);
+                    },
                     child: const Padding(
                       padding: EdgeInsets.only(bottom: 5),
                       child: Text(
@@ -139,6 +143,16 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() {
       todosList.removeWhere((item) => item.id == id);
     });
+  }
+
+  // add Item
+  addItem(String todo) {
+    setState(() {
+      todosList.add(ToDo(
+          id: DateTime.now().microsecondsSinceEpoch.toString(),
+          todoText: todo));
+    });
+    editingController.clear();
   }
 
   // AppBar Funtion
