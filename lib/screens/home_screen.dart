@@ -50,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           todo: todoo,
                           onTodoChanged: handleToDoChange,
                           onDeleteItem: deleteToDoItem,
-                        )
+                        ),
                     ],
                   ),
                 )
