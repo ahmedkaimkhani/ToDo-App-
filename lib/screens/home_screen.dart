@@ -102,7 +102,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       padding: EdgeInsets.only(bottom: 5),
                       child: Text(
                         '+',
-                        style: TextStyle(fontSize: 40),
+                        style: TextStyle(fontSize: 44),
                       ),
                     ),
                   ),
