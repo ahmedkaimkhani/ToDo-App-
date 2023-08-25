@@ -12,7 +12,14 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final todosList = ToDo.todoList();
+  List<ToDo> foundToDo = [];
   TextEditingController editingController = TextEditingController();
+
+  @override
+  void initState() {
+    foundToDo = todosList;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               fontSize: 30, fontWeight: FontWeight.w500),
                         ),
                       ),
-                      for (ToDo todoo in todosList.reversed)
+                      for (ToDo todoo in foundToDo.reversed)
                         TodoItem(
                           todo: todoo,
                           onTodoChanged: handleToDoChange,
@@ -72,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         borderRadius: BorderRadius.circular(10)),
                     child: TextField(
                       controller: editingController,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                           hintText: 'Add new todo item',
                           border: InputBorder.none),
                     ),
@@ -113,8 +120,9 @@ class _HomeScreenState extends State<HomeScreen> {
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
       ),
-      child: const TextField(
-        decoration: InputDecoration(
+      child: TextField(
+        onChanged: (value) => runFilter(value),
+        decoration: const InputDecoration(
           // contentPadding: EdgeInsets.all(0),
           prefixIcon: Icon(
             Icons.search,
@@ -153,6 +161,23 @@ class _HomeScreenState extends State<HomeScreen> {
           todoText: todo));
     });
     editingController.clear();
+  }
+
+  // Search Bar Function
+  runFilter(String enteredKeyword) {
+    List<ToDo> result = [];
+    if (enteredKeyword.isEmpty) {
+      result = todosList;
+    } else {
+      result = todosList
+          .where((item) => item.todoText!
+              .toLowerCase()
+              .contains(enteredKeyword.toLowerCase()))
+          .toList();
+    }
+    setState(() {
+      foundToDo = result;
+    });
   }
 
   // AppBar Funtion
