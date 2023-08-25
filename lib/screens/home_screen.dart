@@ -126,14 +126,13 @@ class _HomeScreenState extends State<HomeScreen> {
       child: TextField(
         onChanged: (value) => runFilter(value),
         decoration: const InputDecoration(
-          // contentPadding: EdgeInsets.all(0),
+          contentPadding: EdgeInsets.all(0),
           prefixIcon: Icon(
             Icons.search,
             size: 20,
             color: tdBlack,
           ),
-          // prefixIconConstraints:
-          //     BoxConstraints(maxHeight: 20, minWidth: 25),
+          prefixIconConstraints: BoxConstraints(maxHeight: 20, minWidth: 25),
           border: InputBorder.none,
           hintText: 'Search',
           hintStyle: TextStyle(color: tdGrey),
