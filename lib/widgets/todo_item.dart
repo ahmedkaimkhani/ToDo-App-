@@ -53,7 +53,9 @@ class _TodoItemState extends State<TodoItem> {
           decoration: BoxDecoration(
               color: tdRed, borderRadius: BorderRadius.circular(5)),
           child: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              widget.onDeleteItem(widget.todo.id);
+            },
             icon: Icon(Icons.delete),
             color: Colors.white,
             iconSize: 18,
